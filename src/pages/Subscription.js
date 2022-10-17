@@ -8,36 +8,46 @@ import {
 import { useEffect } from "react";
 import Cards from "../components/Cards";
 import { Link } from "react-router-dom";
+import { style } from "@mui/system";
 
-const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
+const Container = styled.div``;
 const Hr = styled.hr`
   margin-left: 0px;
   border: 3px solid ${({ theme }) => theme.soft};
 `;
+const Title = styled.div``;
 const Content = styled.div``;
 const Image = styled.img`
-  height: 100px;
-  width: 202px;
+  width: 24%;
+  height: 7%;
+  background-color: #9999;
 `;
 const Description = styled.div`
   margin-left: 35px;
 `;
 
 const Subscription = () => {
-  /*  const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getSubscribedChannels());
   }, [dispatch]);
 
-  const { loading, videos } = useSelector(
-    (state) => state.subscriptionsChannel
+  const { videos } = useSelector((state) => state.subscriptionsChannel);
+  console.log(videos);
+
+  return (
+    <Container>
+      {videos?.map((video) => (
+        <div key={video.id}>
+          <Image src={video?.snippet?.thumbnails?.medium?.url} alt="tg" />
+
+          <div key={video.id}>{video.snippet.title}</div>
+          <Description>{video.snippet.description}</Description>
+        </div>
+      ))}
+    </Container>
   );
-  console.log(videos[0].snippet.title); */
-  return <Container>Subscription</Container>;
 };
 
 export default Subscription;
